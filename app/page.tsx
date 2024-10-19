@@ -171,7 +171,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
-      <div className="hidden h-full flex-col md:flex">
+      <div className="h-full flex-col md:flex">
         <div className="container flex flex-col items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
           <div className="ml-auto flex w-full space-x-1 sm:justify-start">
             <h2 className="text-lg font-semibold w-full sm:w-auto">輸入法詞庫轉換工具</h2>
@@ -188,7 +188,7 @@ export default function Page() {
               </SelectContent>
             </Select>
 
-            <div className="hidden space-x-2 md:flex">
+            <div className="space-x-2 md:flex">
               <Button onClick={handleConvert} variant="secondary">轉換</Button>
             </div>
             <MoreActions />
@@ -198,7 +198,7 @@ export default function Page() {
         <div className="flex-1">
           <div className="container h-full py-6">
             <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
-              <div className="hidden flex-col space-y-4 sm:flex md:order-2">
+              <div className="flex-col space-y-4 flex md:order-2">
                 <ModeSelector
                   types={types}
                   modes={modes}
@@ -209,12 +209,11 @@ export default function Page() {
                 <Button variant="outline" onClick={handleSwap}>交換結果</Button>
                 <Separator></Separator>
                 <Button onClick={handleDownload}><DownloadIcon className="mr-2 h-4 w-4" />下載結果</Button>
-                <Button onClick={() => { 
-                  const outputData = (document.getElementById('outputData') as HTMLTextAreaElement).value; 
-                  navigator.clipboard.writeText(outputData); 
+                <Button onClick={() => {
+                  const outputData = (document.getElementById('outputData') as HTMLTextAreaElement).value;
+                  navigator.clipboard.writeText(outputData);
                   toast({ description: '已成功複製至剪貼簿。' });
-                  }}><ClipboardCopyIcon className="mr-2 h-4 w-4" />複製結果</Button>
-                
+                }}><ClipboardCopyIcon className="mr-2 h-4 w-4" />複製結果</Button>
               </div>
               <div className="md:order-1">
                 <div className="mt-0 border-0 p-0">
@@ -239,7 +238,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <Separator className="my-1"/>
+        <Separator className="my-1" />
         <span className="text-sm text-muted-foreground my-5">GPL-3.0 2024 <Link href="https://yi-chi.cotpear.com">Yi Chi</Link>.</span>
       </div>
     </div>
